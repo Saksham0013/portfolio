@@ -9,72 +9,82 @@ export default function FloatingLaptop({ position = [0, 0, 0], scale = 1 }) {
   useFrame((state) => {
     if (!laptopGroup.current) return;
     const t = state.clock.getElapsedTime();
-    // Gentle floating hover & tilt
-    laptopGroup.current.position.y = position[1] + Math.sin(t * 1.2) * 0.08;
-    laptopGroup.current.rotation.y = Math.sin(t * 0.5) * 0.12 - 0.18;
-    laptopGroup.current.rotation.x = 0.08 + Math.cos(t * 0.7) * 0.04;
+    // Gentle floating hover & tilt - controlled amplitude to stay strictly in camera view
+    laptopGroup.current.position.y = position[1] + Math.sin(t * 1.1) * 0.05;
+    laptopGroup.current.rotation.y = Math.sin(t * 0.5) * 0.1 - 0.15;
+    laptopGroup.current.rotation.x = 0.1 + Math.cos(t * 0.7) * 0.03;
   });
 
   return (
     <group ref={laptopGroup} position={position} scale={scale}>
-      {/* LAPTOP BASE */}
-      <mesh position={[0, -0.04, 0.4]}>
+      {/* =========================================
+          LAPTOP BASE (SPACE-GREY METALLIC)
+      ========================================= */}
+      <mesh position={[0, -0.4, 0.3]}>
         <boxGeometry args={[2.5, 0.08, 1.65]} />
         <meshStandardMaterial
-          color="#0B0F19"
-          metalness={0.85}
-          roughness={0.25}
+          color="#1E283D"
+          metalness={0.7}
+          roughness={0.3}
         />
       </mesh>
 
       {/* KEYBOARD RECESS */}
-      <mesh position={[0, -0.004, 0.45]}>
+      <mesh position={[0, -0.358, 0.35]}>
         <boxGeometry args={[2.2, 0.01, 0.85]} />
         <meshStandardMaterial
-          color="#05070E"
-          metalness={0.6}
-          roughness={0.4}
+          color="#0F172A"
+          metalness={0.5}
+          roughness={0.5}
         />
       </mesh>
 
       {/* GLOWING TRACKPAD */}
-      <mesh position={[0, -0.003, 0.95]}>
+      <mesh position={[0, -0.356, 0.85]}>
         <boxGeometry args={[0.75, 0.01, 0.45]} />
         <meshStandardMaterial
-          color="#0F172A"
-          metalness={0.8}
+          color="#182236"
+          metalness={0.7}
           roughness={0.2}
           emissive="#00F0FF"
-          emissiveIntensity={0.2}
+          emissiveIntensity={0.25}
         />
       </mesh>
 
-      {/* LAPTOP SCREEN LID (hinged at z= -0.42) */}
-      <group position={[0, 0, -0.42]} rotation={[-0.26, 0, 0]}>
-        {/* Screen back frame */}
+      {/* FRONT EDGE LED GLOW STRIP */}
+      <mesh position={[0, -0.4, 1.126]}>
+        <boxGeometry args={[0.6, 0.02, 0.01]} />
+        <meshBasicMaterial color="#00F0FF" />
+      </mesh>
+
+      {/* =========================================
+          LAPTOP SCREEN LID (HINGED AT Z = -0.5, Y = -0.38)
+      ========================================= */}
+      <group position={[0, -0.38, -0.5]} rotation={[-0.28, 0, 0]}>
+        {/* Screen back frame (Metallic Space-Grey) */}
         <mesh position={[0, 0.85, 0]}>
           <boxGeometry args={[2.5, 1.65, 0.05]} />
           <meshStandardMaterial
-            color="#080C14"
-            metalness={0.9}
-            roughness={0.2}
+            color="#1B2438"
+            metalness={0.75}
+            roughness={0.25}
           />
         </mesh>
 
         {/* Screen Glass Bezel */}
         <mesh position={[0, 0.85, 0.028]}>
-          <boxGeometry args={[2.36, 1.52, 0.01]} />
+          <boxGeometry args={[2.38, 1.54, 0.01]} />
           <meshStandardMaterial
-            color="#000208"
-            metalness={0.3}
-            roughness={0.1}
+            color="#080D1A"
+            metalness={0.4}
+            roughness={0.15}
           />
         </mesh>
 
         {/* GLOWING CODE DISPLAY ON SCREEN */}
         <mesh position={[0, 0.85, 0.034]}>
           <planeGeometry args={[2.3, 1.45]} />
-          <meshBasicMaterial color="#040814" />
+          <meshBasicMaterial color="#050B18" />
           <Html
             transform
             distanceFactor={1.12}
@@ -126,10 +136,10 @@ export default function FloatingLaptop({ position = [0, 0, 0], scale = 1 }) {
         </mesh>
       </group>
 
-      {/* NEON AMBIENT GLOW BARS */}
-      <mesh position={[0, -0.09, 0.4]}>
+      {/* NEON AMBIENT BASE GLOW */}
+      <mesh position={[0, -0.45, 0.3]}>
         <boxGeometry args={[2.55, 0.02, 1.7]} />
-        <meshBasicMaterial color="#00F0FF" transparent opacity={0.3} />
+        <meshBasicMaterial color="#00F0FF" transparent opacity={0.35} />
       </mesh>
     </group>
   );

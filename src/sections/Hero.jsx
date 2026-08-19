@@ -32,7 +32,7 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <span className="status-dot" />
-            <span className="text-xs font-mono tracking-widest text-cyan-300 font-semibold uppercase">
+            <span className="text-[10px] sm:text-xs font-mono tracking-wider sm:tracking-widest text-cyan-300 font-semibold uppercase">
               AVAILABLE FOR NEW OPPORTUNITIES
             </span>
           </motion.div>
@@ -142,32 +142,21 @@ export default function Hero() {
 
         {/* RIGHT COLUMN: 3D INTERACTIVE FLOATING LAPTOP SCENE */}
         <motion.div
-          className="lg:col-span-7 xl:col-span-7 relative h-[560px] sm:h-[680px] lg:h-[800px] xl:h-[860px] flex items-center justify-center w-full"
+          className="lg:col-span-7 xl:col-span-7 relative flex items-center justify-center w-full"
+          style={{ height: 'clamp(220px, 32vw, 420px)' }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="w-full h-full relative">
             <HeroScene />
-            {/* Subtle Interactive Hint Badge */}
+            {/* Subtle Interactive Hint Badge — hidden on tiny screens via CSS */}
             <div className="absolute bottom-2 right-2 glass-badge-3d text-[11px] text-slate-400 font-mono px-2.5 py-1 rounded-md flex items-center gap-1.5 pointer-events-none">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
               <span>Interactive 3D Scene</span>
             </div>
           </div>
         </motion.div>
-      </div>
-
-      {/* SCROLL DOWN ARROW INDICATOR */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity pointer-events-auto">
-        <span className="text-[10px] uppercase font-mono tracking-widest text-slate-400">Scroll</span>
-        <div className="w-4 h-7 rounded-full border border-slate-600 flex justify-center pt-1">
-          <motion.div
-            className="w-1 h-1.5 rounded-full bg-cyan-400"
-            animate={{ y: [0, 8, 0], opacity: [1, 0.3, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          />
-        </div>
       </div>
     </section>
   );

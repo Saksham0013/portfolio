@@ -106,10 +106,10 @@ export default function About() {
                 </span>
                 <span>Production Ready</span>
               </div>
-              <p className="text-xs text-slate-400 font-mono leading-relaxed">
-                Frontend: React + Tailwind + Motion <br />
-                Backend: Node.js + Express.js + REST <br />
-                Database: MongoDB Atlas Cloud
+              <p className="text-xs font-mono leading-relaxed space-y-1">
+                <span className="text-cyan-400 font-semibold">Frontend:</span> <span className="text-slate-300">React + Tailwind + Motion</span> <br />
+                <span className="text-purple-400 font-semibold">Backend:</span> <span className="text-slate-300">Node.js + Express.js + REST</span> <br />
+                <span className="text-emerald-400 font-semibold">Database:</span> <span className="text-slate-300">MongoDB Atlas Cloud</span>
               </p>
             </div>
           </motion.div>

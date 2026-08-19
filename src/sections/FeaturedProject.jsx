@@ -62,7 +62,7 @@ export default function FeaturedProject() {
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* LEFT: PROJECT METADATA */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 project-metadata-container">
               <div className="flex items-center gap-3">
                 <span className="w-9 h-9 rounded-xl bg-red-500/20 border border-red-500/40 text-red-400 flex items-center justify-center">
                   <ShoppingBag size={18} />
@@ -82,22 +82,22 @@ export default function FeaturedProject() {
               </p>
 
               {/* HIGHLIGHTED CAPABILITIES */}
-              <div className="space-y-2.5">
+              <div className="project-capabilities-list">
                 {[
                   'Real-time inventory search & dynamic category filters',
                   'Instant cart computation & persistent order state',
                   'REST API backend with MongoDB aggregation queries',
                   'Ultra-responsive mobile-first design with smooth micro-interactions'
                 ].map((highlight, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
-                    <Zap size={14} className="text-cyan-400 shrink-0" />
+                  <div key={idx} className="feature-item text-xs sm:text-sm text-slate-300">
+                    <Zap size={14} className="text-cyan-400 feature-icon" />
                     <span>{highlight}</span>
                   </div>
                 ))}
               </div>
 
               {/* TECH CHIPS (SPACED) */}
-              <div className="flex flex-wrap gap-3 pt-3">
+              <div className="tech-badges-container pt-3">
                 {featured.technologies.map((tech) => (
                   <span
                     key={tech}

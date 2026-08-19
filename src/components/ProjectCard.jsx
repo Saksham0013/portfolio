@@ -89,12 +89,12 @@ export default function ProjectCard({ project, index }) {
             {project.title}
           </h3>
 
-          <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-light line-clamp-3">
+          <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-light project-card-desc">
             {project.description}
           </p>
 
           {/* TECH BADGES (SPACED) */}
-          <div className="flex flex-wrap gap-2.5 pt-2">
+          <div className="tech-badges-container pt-2">
             {project.technologies.map((tech) => (
               <span
                 key={tech}
@@ -107,7 +107,7 @@ export default function ProjectCard({ project, index }) {
         </div>
 
         {/* ACTION BUTTONS */}
-        <div className="pt-4 border-t border-slate-800/80 flex items-center gap-3">
+        <div className="pt-4 border-t border-slate-800/80 project-card-actions">
           {!isPlaceholder ? (
             <>
               {project.liveUrl && project.liveUrl !== '#' && (

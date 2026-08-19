@@ -13,17 +13,17 @@ export default function Footer() {
       <div className="container">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800/60">
           {/* IDENTITY */}
-          <div className="flex items-center gap-3">
+          <div className="footer-brand">
             <div className="logo-badge">
               <span className="logo-text">SA</span>
             </div>
-            <div>
-              <span className="text-base font-bold text-white tracking-wider block">
+            <div className="footer-brand-text">
+              <h3 className="footer-brand-name">
                 Saksham Agrahari
-              </span>
-              <span className="text-xs text-slate-400 font-mono">
+              </h3>
+              <p className="footer-brand-role">
                 MERN Stack Developer &bull; Creative Web Engineer
-              </span>
+              </p>
             </div>
           </div>
 
@@ -80,10 +80,6 @@ export default function Footer() {
         {/* BOTTOM METADATA ROW */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
           <p>&copy; {new Date().getFullYear()} Saksham Agrahari. All rights reserved.</p>
-          <div className="flex items-center gap-2 text-slate-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-            <span>Built with React, Three.js & Framer Motion</span>
-          </div>
         </div>
       </div>
     </footer>

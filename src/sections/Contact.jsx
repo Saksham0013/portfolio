@@ -70,8 +70,8 @@ export default function Contact() {
                 href={`mailto:${profile.email}`}
                 className="contact-channel-card group"
               >
-                <div className="channel-icon bg-cyan-500/10 border-cyan-500/30 text-cyan-400">
-                  <Mail size={18} />
+                <div className="channel-icon channel-icon-cyan">
+                  <Mail size={20} />
                 </div>
                 <div className="flex-1">
                   <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">Email Directly</span>
@@ -89,8 +89,8 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="contact-channel-card group"
               >
-                <div className="channel-icon bg-green-500/10 border-green-500/30 text-green-400">
-                  <MessageSquare size={18} />
+                <div className="channel-icon channel-icon-green">
+                  <MessageSquare size={20} />
                 </div>
                 <div className="flex-1">
                   <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">WhatsApp Chat</span>
@@ -102,7 +102,7 @@ export default function Contact() {
               </a>
 
               {/* SOCIAL BUTTONS ROW */}
-              <div className="grid grid-cols-3 gap-3 pt-2">
+              <div className="grid grid-cols-3 gap-3 pt-2 social-buttons-grid">
                 <a
                   href={profile.linkedin}
                   target="_blank"

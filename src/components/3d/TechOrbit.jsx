@@ -19,16 +19,16 @@ export default function TechOrbit() {
   });
 
   return (
-    <group position={[0, 0, -0.6]}>
+    <group position={[0, 0, -0.8]}>
       {/* Outer Orbit Ring */}
       <group ref={orbit1}>
         <mesh rotation={[Math.PI / 2.5, 0, 0]}>
-          <torusGeometry args={[2.5, 0.008, 16, 100]} />
+          <torusGeometry args={[3.0, 0.009, 16, 100]} />
           <meshBasicMaterial color="#00F0FF" transparent opacity={0.25} />
         </mesh>
         {/* Orbital Node */}
-        <mesh position={[2.5, 0, 0]}>
-          <sphereGeometry args={[0.045, 16, 16]} />
+        <mesh position={[3.0, 0, 0]}>
+          <sphereGeometry args={[0.05, 16, 16]} />
           <meshBasicMaterial color="#00F0FF" />
         </mesh>
       </group>
@@ -36,12 +36,12 @@ export default function TechOrbit() {
       {/* Inner Orbit Ring */}
       <group ref={orbit2}>
         <mesh rotation={[-Math.PI / 3, 0, 0]}>
-          <torusGeometry args={[2.0, 0.007, 16, 100]} />
+          <torusGeometry args={[2.3, 0.008, 16, 100]} />
           <meshBasicMaterial color="#A855F7" transparent opacity={0.2} />
         </mesh>
         {/* Orbital Node */}
-        <mesh position={[-2.0, 0, 0]}>
-          <sphereGeometry args={[0.04, 16, 16]} />
+        <mesh position={[-2.3, 0, 0]}>
+          <sphereGeometry args={[0.045, 16, 16]} />
           <meshBasicMaterial color="#A855F7" />
         </mesh>
       </group>
